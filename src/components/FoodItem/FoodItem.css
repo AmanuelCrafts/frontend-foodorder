@@ -1,0 +1,136 @@
+.food-item {
+  display: flex;
+  gap: 20px;
+  background: #fff8f6;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(145, 40, 34, 0.15);
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.food-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(145, 40, 34, 0.3);
+}
+
+.food-item-img-container {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(145, 40, 34, 0.25);
+}
+
+.food-item-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.food-item-img-container:hover .food-item-img {
+  transform: scale(1.05);
+}
+
+.add {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 36px;
+  height: 36px;
+  background-color: rgba(145, 40, 34, 0.85);
+  border-radius: 50%;
+  padding: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 0 10px rgba(145, 40, 34, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add:hover {
+  background-color: #8f2a21;
+  transform: scale(1.1);
+}
+
+.food-item-counter {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: #fff8f6;
+  border-radius: 28px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 14px;
+  box-shadow: 0 0 12px rgba(145, 40, 34, 0.3);
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  color: #912822;
+  user-select: none;
+}
+
+.food-item-counter img {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+  filter: drop-shadow(0 0 3px rgba(145, 40, 34, 0.5));
+}
+
+.food-item-counter img:hover {
+  transform: scale(1.15);
+}
+
+.food-item-counter p {
+  margin: 0;
+  font-size: 1.1rem;
+  min-width: 20px;
+  text-align: center;
+}
+
+.food-item:hover .food-item-img {
+  transform: scale(1.05);
+}
+
+.food-item-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.food-item-name-rating {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #912822;
+}
+
+.food-item-name-rating img {
+  width: 90px;
+  height: auto;
+  filter: drop-shadow(0 0 2px rgba(255, 166, 0, 0.7));
+}
+
+.food-item-desc {
+  margin: 10px 0 15px 0;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: #5b3a36;
+  line-height: 1.4;
+}
+
+.food-item-price {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #bf5a4f;
+}

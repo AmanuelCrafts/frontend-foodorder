@@ -1,0 +1,183 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  backdrop-filter: blur(14px);
+  padding: 1rem 5rem;
+  box-shadow: 0 8px 20px rgba(145, 40, 34, 0.12);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.navbar:hover {
+  background-color: #fff3ef; /* subtle warm highlight on hover */
+  box-shadow: 0 12px 30px rgba(145, 40, 34, 0.2);
+}
+
+.navbar img {
+  height: 60px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.navbar img:hover {
+  transform: scale(1.05);
+}
+
+.navbar-menu {
+  list-style: none;
+  display: flex;
+  gap: 2rem; /* a bit more spacious */
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: #6a2c26; /* deep maroon brown */
+}
+
+.navbar-menu li {
+  cursor: pointer;
+  position: relative;
+  transition: color 0.25s ease;
+}
+
+.navbar-menu li::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -6px;
+  left: 0;
+  background-color: #8f2a21;
+  transition: width 0.3s ease;
+}
+
+.navbar-menu li:hover,
+.navbar-menu li.active {
+  color: #8f2a21;
+}
+
+.navbar-menu li:hover::after,
+.navbar-menu li.active::after {
+  width: 100%;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  position: relative;
+  font-family: "Poppins", sans-serif;
+}
+
+.navbar-right img {
+  height: 24px;
+  cursor: pointer;
+  filter: drop-shadow(0 0 2px rgba(145, 40, 34, 0.3));
+  transition: transform 0.3s ease;
+}
+
+.navbar-right img:hover {
+  transform: scale(1.1);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background-color: #8f2a21;
+  border-radius: 50%;
+  position: absolute;
+  top: 4px;
+  left: 20px;
+  box-shadow: 0 0 6px rgba(143, 42, 33, 0.6);
+}
+
+.navbar-right button {
+  background-color: transparent;
+  color: #8f2a21;
+  border: 1.8px solid #8f2a21;
+  padding: 0.85rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-family: "Montserrat", sans-serif;
+  box-shadow: 0 0 8px rgba(143, 42, 33, 0.15);
+}
+
+.navbar-right button:hover {
+  background-color: #8f2a21;
+  color: white;
+  box-shadow: 0 0 12px rgba(143, 42, 33, 0.5);
+}
+
+.link {
+  color: #6a2c26;
+}
+
+/* Hide hamburger on desktop */
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #912822;
+}
+
+/* Desktop-only and mobile-only helper classes */
+.desktop-only {
+  display: flex;
+}
+
+.mobile-only {
+  display: none;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .navbar-menu {
+    display: none;
+    flex-direction: column;
+    background: #fff3ef;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    padding: 1rem 0;
+    z-index: 1000;
+  }
+
+  .navbar-menu.open {
+    display: flex;
+  }
+
+  .navbar-menu li {
+    padding: 0.8rem 0;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  /* Show Cart and Sign In inside menu on mobile */
+  .mobile-only {
+    display: block;
+  }
+
+  /* Hide desktop-only elements on mobile */
+  .desktop-only {
+    display: none;
+  }
+
+  .navbar-right {
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+  }
+}

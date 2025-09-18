@@ -1,0 +1,13 @@
+.food-display {
+  padding: 40px 20px;
+  background-color: #fef9f7;
+  min-height: 100vh;
+}
+
+.food-display-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
