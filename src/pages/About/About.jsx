@@ -1,7 +1,29 @@
+import { useState } from "react";
 import { assets } from "../../assets/assets";
 import "./About.css";
+import Img from "../../img.jpg";
+import Img1 from "../../img1.jpg";
+import Img2 from "../../img2.jpg";
+
+import Logo1 from "./image.png";
+import Logo2 from "./awash.png";
+import Logo3 from "./dashen.png";
 
 const AboutUs = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const certificates = [Img, Img1, Img2];
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % certificates.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex(
+      (prev) => (prev - 1 + certificates.length) % certificates.length
+    );
+  };
+
   return (
     <main className="about-us">
       <section className="about-hero">
@@ -18,66 +40,49 @@ const AboutUs = () => {
         <h2>Our Story</h2>
         <p>
           Founded in 1999, Kerevat Cafe & Restaurant has been a beloved local
-          spot where tradition meets modern culinary art. Our passion is to
-          serve you with the freshest ingredients, inspired recipes, and warm
-          hospitality that makes every visit memorable.
+          spot where tradition meets modern culinary art.
         </p>
 
-        <div className="fun-fact-box">
-          <h3>Fun Fact</h3>
-          <p>
-            Our signature coffee blend is sourced from local Ethiopian farms,
-            roasted fresh weekly to guarantee rich, bold flavors.
-          </p>
+        {/* ================== LOGO INFINITE LOOP ================== */}
+        <h2>Our Partners</h2>
+        <div className="logo-slider">
+          <div className="logo-track">
+            <img src={Logo1} alt="Partner 1" />
+            <img src={Logo2} alt="Partner 2" />
+            <img src={Logo3} alt="Partner 3" />
+            <img src={Logo1} alt="Partner 4" />
+
+            {/* Duplicate for smooth infinite loop */}
+            <img src={Logo2} alt="Partner 1" />
+            <img src={Logo3} alt="Partner 2" />
+            <img src={Logo1} alt="Partner 3" />
+            <img src={Logo2} alt="Partner 4" />
+          </div>
         </div>
 
-        <h2>Our Mission</h2>
-        <p>
-          To deliver exceptional dining experiences by combining authentic
-          flavors with innovative dishes, creating a space where friends and
-          family can gather, relax, and enjoy great food.
-        </p>
+        {/* ================== CERTIFICATE CAROUSEL ================== */}
+        <h2>Our Certifications</h2>
+        <div className="certificate-carousel">
+          <button onClick={prevSlide} className="carousel-btn">
+            ❮
+          </button>
 
-        <h2>What Makes Us Special</h2>
-        <ul>
-          <li>Locally sourced fresh ingredients</li>
-          <li>Unique menu blending traditional & contemporary cuisines</li>
-          <li>Cozy and welcoming atmosphere</li>
-          <li>Friendly and professional staff</li>
-          <li>Committed to sustainability and community support</li>
-        </ul>
+          <img
+            src={certificates[currentIndex]}
+            alt="Certificate"
+            className="certificate-image"
+          />
 
-        <h2>Photo Highlights</h2>
-        <div className="photo-gallery">
-          <img
-            src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80"
-            alt="Delicious pasta dish"
-          />
-          <img
-            src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=600&q=80"
-            alt="Fresh salad bowl"
-          />
-          <img
-            src="https://images.unsplash.com/photo-1525610553991-2bede1a236e2?auto=format&fit=crop&w=600&q=80"
-            alt="Cozy restaurant dining area"
-          />
+          <button onClick={nextSlide} className="carousel-btn">
+            ❯
+          </button>
         </div>
 
         <h2>Visit Us</h2>
         <p>
           We are located in the heart of the city, ready to welcome you every
-          day from 8 AM to 10 PM. Whether you're stopping by for your morning
-          coffee or a full-course dinner, Kerevat Cafe & Restaurant is here to
-          make your experience unforgettable.
+          day from 8 AM to 10 PM.
         </p>
-
-        <div className="contact-info">
-          <h3>Opening Hours</h3>
-          <p>Monday - Sunday: 8 AM - 10 PM</p>
-          <h3>Contact</h3>
-          <p>Phone: +251 123 456 789</p>
-          <p>Email: info@kerevatcafe.com</p>
-        </div>
       </section>
     </main>
   );
