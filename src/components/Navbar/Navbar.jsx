@@ -25,20 +25,20 @@ const Navbar = () => {
       </button>
 
       <ul className={`navbar-menu ${open ? "open" : ""}`}>
-        <li
+        {/* <li
           onClick={() => handleClick("menu")}
           className={menu === "menu" ? "active" : ""}
         >
           <Link className="link" to="/">
             Menu
           </Link>
-        </li>
+        </li> */}
         <li
           onClick={() => handleClick("about")}
           className={menu === "about" ? "active" : ""}
         >
-          <Link className="link" to="/about">
-            About Us
+          <Link className="link" to="/">
+            About
           </Link>
         </li>
 
